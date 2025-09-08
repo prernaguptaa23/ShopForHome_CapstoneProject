@@ -1,0 +1,21 @@
+<div *ngIf="wishlistItems$ | async as wishlistItems">
+  <div *ngIf="wishlistItems.length === 0" class="text-center my-5">
+    <h4>Your wishlist is empty.</h4>
+  </div>
+
+  <div class="row" *ngIf="wishlistItems.length > 0">
+    <div class="col-md-3 mb-4" *ngFor="let item of wishlistItems">
+      <app-product-card [product]="item.product"></app-product-card>
+
+      <button class="btn btn-primary btn-sm mt-2 w-100" 
+              (click)="addToCart(item.product.productId)">
+        Add to Cart
+      </button>
+
+      <button class="btn btn-danger btn-sm mt-2 w-100"
+              (click)="removeFromWishlist(item.wishlistId)">
+        <i class="bi bi-heart-fill me-2"></i> Remove from Wishlist
+      </button>
+    </div>
+  </div>
+</div>

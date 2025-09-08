@@ -1,0 +1,12 @@
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-primary text-white fw-bold">
+    Categories
+  </div>
+  <ul class="list-group list-group-flush">
+    <li *ngFor="let category of categories" class="list-group-item">
+      <a [routerLink]="['/products']" [queryParams]="{ category: category }" class="text-dark text-decoration-none">
+        {{ category }}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<div class="row mb-5 mx-0">
+  <div class="col-md-4 mb-4" *ngFor="let category of categories">
+    <div class="card category-card text-center p-2 shadow-sm" (click)="goToCategory(category)">
+      <img [src]="'assets/images/' + (category | lowercase) + '.jpg'" class="card-img-top rounded" alt="{{category}}">
+      <div class="card-body">
+        <h6 class="card-title">{{ category }}</h6>
+      </div>
+    </div>
+  </div>
+</div>

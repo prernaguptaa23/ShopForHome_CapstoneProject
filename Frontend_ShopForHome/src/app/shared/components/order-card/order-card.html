@@ -1,0 +1,9 @@
+<div class="card mb-3 shadow-sm">
+  <div class="card-body">
+    <h6 class="card-title">Order #{{ order.id }}</h6>
+    <p class="card-text mb-1">Date: {{ order.orderDate | date:'shortDate' }}</p>
+    <p class="card-text mb-1">Total: ₹ {{ order.totalAmount | currency:'INR':'symbol':'1.0-0' }}</p>
+    <p class="card-text mb-1">Status: <span class="fw-bold">{{ order.paymentstatus }}</span></p>
+    <button class="btn btn-outline-primary btn-sm mt-2" (click)="onViewDetails()">View Details</button>
+  </div>
+</div>

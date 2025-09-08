@@ -1,0 +1,8 @@
+<div class="card mb-2 border-success shadow-sm">
+  <div class="card-body">
+    <h6 class="card-title text-success">{{ coupon.code }}</h6>
+    <p class="card-text mb-1">{{ coupon.description }}</p>
+    <p class="card-text mb-1">Discount: {{ coupon.discountPercentage }}%</p>
+    <p class="card-text text-muted mb-0">Valid till: {{ coupon.expiryDate | date:'shortDate' }}</p>
+  </div>
+</div>

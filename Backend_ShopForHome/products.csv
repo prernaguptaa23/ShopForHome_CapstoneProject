@@ -1,0 +1,4 @@
+Name,Description,Price,StockQuantity,GST,CategoryId,ImagePath
+Sofa,Comfortable 3-seater sofa,299.99,10,18,1,sofa.jpg
+Coffee Table,Wooden coffee table,89.99,15,12,1,table.jpg
+Lamp,LED desk lamp,19.99,50,5,2,lamp.jpg

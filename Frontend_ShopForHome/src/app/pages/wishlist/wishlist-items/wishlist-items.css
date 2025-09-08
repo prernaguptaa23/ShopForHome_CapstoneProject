@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  padding: 20px;
+}
+
+.btn {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-md-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

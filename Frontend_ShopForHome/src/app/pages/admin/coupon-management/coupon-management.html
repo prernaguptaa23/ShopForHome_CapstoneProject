@@ -1,0 +1,74 @@
+<div class="container mt-5">
+
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-3">{{ editMode ? 'Edit Coupon' : 'Add Coupon' }}</h4>
+
+      <form [formGroup]="couponForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+          <label class="form-label">Coupon Code</label>
+          <input type="text" class="form-control" formControlName="code">
+          <div *ngIf="submitted && f['code'].errors" class="text-danger small">
+            Coupon code is required
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Discount (%)</label>
+          <input type="number" class="form-control" formControlName="discount">
+          <div *ngIf="submitted && f['discount'].errors" class="text-danger small">
+            <div *ngIf="f['discount'].errors?.['required']">Discount is required</div>
+            <div *ngIf="f['discount'].errors?.['min'] || f['discount'].errors?.['max']">Discount must be 1-100%</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Expiry Date</label>
+          <input type="date" class="form-control" formControlName="expiryDate">
+          <div *ngIf="submitted && f['expiryDate'].errors" class="text-danger small">
+            Expiry date is required
+          </div>
+        </div>
+
+        <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+        <button type="submit" class="btn btn-primary">{{ editMode ? 'Update' : 'Add' }} Coupon</button>
+        <button type="button" class="btn btn-secondary ms-2" *ngIf="editMode" (click)="cancelEdit()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-3">All Coupons</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Code</th>
+              <th>Discount (%)</th>
+              <th>Expiry Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let coupon of coupons; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ coupon.code }}</td>
+              <td>{{ coupon.discountPercentage }}</td>
+              <td>{{ coupon.expiryDate | date:'yyyy-MM-dd' }}</td>
+              <td>
+                <button class="btn btn-sm btn-warning me-2" (click)="editCoupon(coupon)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteCoupon(coupon.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

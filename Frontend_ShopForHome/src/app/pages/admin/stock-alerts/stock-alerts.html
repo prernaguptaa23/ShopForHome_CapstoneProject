@@ -1,0 +1,25 @@
+<p>stock-alerts works!</p>
+<div class="container mt-5">
+  <h3 class="mb-4">Stock Alerts</h3>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <div class="row">
+    <div *ngFor="let product of lowStockProducts" class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100">
+        <img [src]="'assets/images/' + product.imageUrl" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">Stock: <span class="text-danger">{{ product.stock }}</span></p>
+          <button class="btn btn-warning w-100" (click)="notifyAdmin(product)">
+            Notify Me
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="lowStockProducts.length === 0" class="alert alert-success">
+    All products have sufficient stock.
+  </div>
+</div>

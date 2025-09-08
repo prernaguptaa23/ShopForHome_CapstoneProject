@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+  <!-- Search -->
+  <input type="text" class="form-control w-auto mt-10" [(ngModel)]="searchTerm" placeholder="Search products">
+
+  <!-- Category dropdown -->
+  <select class="form-select w-auto" [(ngModel)]="selectedCategoryId" placeholder="Categories">
+    <option [ngValue]="null">All Categories</option>
+    <option *ngFor="let cat of categories" [ngValue]="cat.id">{{ cat.name }}</option>
+  </select>
+
+  <!-- Min Price -->
+  <input type="number" class="form-control w-auto" [(ngModel)]="minPrice" placeholder="Min Price">
+
+  <!-- Max Price -->
+  <input type="number" class="form-control w-auto" [(ngModel)]="maxPrice" placeholder="Max Price">
+
+  <!-- Filter button -->
+  <button class="btn btn-primary" (click)="applyFilter()">Filter</button>
+</div>

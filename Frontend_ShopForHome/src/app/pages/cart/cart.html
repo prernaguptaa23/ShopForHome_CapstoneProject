@@ -1,0 +1,32 @@
+<div class="container my-5 pt-5">
+  <h2 class="mb-4">My Cart</h2>
+
+  <!-- If cart is empty -->
+  <div *ngIf="cartItems.length === 0" class="alert alert-info text-center">
+    Your cart is empty.
+    <div class="mt-3">
+      <a routerLink="/products" class="btn btn-primary">Shop Products</a>
+    </div>
+  </div>
+
+  <!-- If cart has items -->
+  <div *ngIf="cartItems.length > 0" class="row">
+    <!-- Left: Cart Items -->
+    <div class="col-lg-8 mb-4">
+      <app-cart-items
+        [items]="cartItems"
+        (updateItem)="onUpdateItem($event)"
+        (removeItem)="onRemoveItem($event)">
+      </app-cart-items>
+    </div>
+
+    <!-- Right: Summary -->
+    <div class="col-lg-4">
+      <app-cart-summary [items]="cartItems"></app-cart-summary>
+
+      <div class="mt-3 d-grid gap-2">
+        <button class="btn btn-success btn-lg" (click)="checkout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+You can add global styles to this file, and also import other style files
+
+
+.navbar {
+  background-color: #f8f9fa !important;
+  border-bottom: 1px solid #ddd;
+}
+
+body {
+  padding-top: 30px; 
+}

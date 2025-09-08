@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold fs-4" routerLink="/">AesthHome</a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Left: Links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/products">Products</a></li>
+
+        <!-- Categories dropdown -->
+        <li class="nav-item dropdown" *ngIf="categories?.length">
+  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+    Categories
+  </a>
+  <ul class="dropdown-menu">
+    <li *ngFor="let category of categories">
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: category}">
+        {{category}}
+      </a>
+    </li>
+  </ul>
+</li>
+
+      </ul>
+
+      
+
+      <!-- Right: Search + Wishlist/Cart + Login/User -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        
+
+        <!-- Wishlist -->
+        <li class="nav-item me-3">
+          <a class="nav-link position-relative" (click)="checkLogin('wishlist')">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="badge bg-danger position-absolute start-100 translate-middle">{{wishlistCount}}</span>
+          </a>
+        </li>
+
+        <!-- Cart -->
+        <li class="nav-item me-3">
+          <a class="nav-link position-relative" (click)="checkLogin('cart')">
+            <i class="bi bi-cart fs-5"></i>
+            <span class="badge bg-danger position-absolute start-100 translate-middle">{{cartCount}}</span>
+          </a>
+        </li>
+
+        <!-- Login/Register OR User -->
+ <ul class="navbar-nav ms-auto">
+    <!-- Show Login/Register only if user is NOT logged in -->
+    <li class="nav-item" *ngIf="!currentUser">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="!currentUser">
+      <a class="nav-link" routerLink="/register">Register</a>
+    </li>
+
+    <!-- Show Logout & Profile only if user IS logged in -->
+    <li class="nav-item" *ngIf="currentUser">
+      <a class="nav-link" routerLink="/profile">{{ currentUser.fullName }}</a>
+    </li>
+    <li class="nav-item" *ngIf="currentUser">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+
+      </ul>
+    </div>
+  </div>
+</nav>

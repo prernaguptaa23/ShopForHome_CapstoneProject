@@ -1,0 +1,49 @@
+<div *ngFor="let item of items" class="card mb-3 shadow-sm">
+  <div class="row g-0 align-items-center">
+    
+    <!-- Product Image -->
+    <div class="col-md-3">
+      <img [src]="item.product.imageUrl || 'assets/default.png'" 
+           class="img-fluid rounded-start" 
+           alt="{{ item.product.name }}">
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-6">
+      <div class="card-body">
+        <h6 class="card-title">{{ item.product.name }}</h6>
+        <p class="card-text text-muted mb-1">Category: {{ item.product.categoryId }}</p>
+        <p class="card-text fw-bold mb-1">
+          {{ item.product.price | currency:'INR':'symbol':'1.0-0' }}
+        </p>
+
+        <!-- Quantity Controls -->
+        <div class="d-flex align-items-center mt-2">
+          <!-- Decrease Quantity -->
+<button 
+  class="btn btn-outline-secondary btn-sm me-2" 
+  (click)="onUpdate(item, item.quantity - 1)" 
+  [disabled]="item.quantity <= 1">-</button>
+
+<span>{{ item.quantity }}</span>
+
+<!-- Increase Quantity -->
+<button 
+  class="btn btn-outline-secondary btn-sm ms-2" 
+  (click)="onUpdate(item, item.quantity + 1)">+</button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Remove & Total -->
+    <div class="col-md-3 text-end pe-3">
+      <button class="btn btn-outline-danger btn-sm" (click)="onRemove(item.cartItemId)">
+        <i class="bi bi-trash"></i> Remove
+      </button>
+      <p class="mt-2 fw-bold">
+        Total: {{ (item.product.price * item.quantity) | currency:'INR':'symbol':'1.0-0' }}
+      </p>
+    </div>
+  </div>
+</div>

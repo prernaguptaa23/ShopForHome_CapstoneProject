@@ -1,0 +1,15 @@
+<app-product-filter (filterChanged)="applyFilter($event)"></app-product-filter>
+
+<div class="row">
+  <div class="col-md-3 mb-4" *ngFor="let product of products">
+    <app-product-card [product]="product"></app-product-card>
+  </div>
+</div>
+
+<!-- Use reusable pagination component here -->
+<app-pagination 
+  [totalItems]="totalProducts" 
+  [pageSize]="pageSize" 
+  [currentPage]="currentPage"
+  (pageChange)="pageChanged($event)">
+</app-pagination>

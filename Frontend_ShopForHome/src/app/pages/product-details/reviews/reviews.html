@@ -1,0 +1,9 @@
+<div class="mt-4">
+  <h5>Customer Reviews</h5>
+  <div *ngIf="reviews.length === 0">No reviews yet.</div>
+  <div *ngFor="let review of reviews" class="card mb-2 p-2">
+    <strong>{{ review.userName }}</strong>
+    <span class="text-muted">({{ review.rating }} / 5)</span>
+    <p>{{ review.comment }}</p>
+  </div>
+</div>

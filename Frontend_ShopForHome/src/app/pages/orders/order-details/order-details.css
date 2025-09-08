@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+ul.list-group {
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .list-group-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

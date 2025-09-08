@@ -1,0 +1,15 @@
+.card {
+  border-radius: 10px;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+img {
+  border-radius: 5px;
+}
+
+.btn {
+  min-width: 70px;
+}

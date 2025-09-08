@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Register</h3>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="fullName">
+              <div *ngIf="submitted && f['fullName'].errors" class="text-danger small">
+                <div *ngIf="f['fullName.errors.required']">Full Name is required</div>
+                <div *ngIf="f['fullName']?.errors?.['minlength']">Minimum 3 characters required</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email">
+              <div *ngIf="submitted && f['email'].errors" class="text-danger small">
+                <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                <div *ngIf="f['email'].errors?.['email']">Invalid email format</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="password">
+              <div *ngIf="submitted && f['password'].errors" class="text-danger small">
+                <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+                <div *ngIf="f['password'].errors?.['minlength']">Minimum 6 characters required</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" formControlName="confirmPassword">
+              <div *ngIf="submitted && f['confirmPassword'].errors" class="text-danger small">
+                <div *ngIf="f['confirmPassword'].errors?.['required']">Confirm Password is required</div>
+                <div *ngIf="registerForm.errors?.['mismatch']">Passwords do not match</div>
+              </div>
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+            <button type="submit" class="btn btn-primary w-100" >Register</button>
+          </form>
+
+          <div class="mt-3 text-center">
+            Already have an account? <a routerLink="/login">Login here</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

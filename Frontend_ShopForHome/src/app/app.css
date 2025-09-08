@@ -1,0 +1,11 @@
+/* Global spacing and responsive fixes */
+main {
+  min-height: 80vh;
+}
+
+/* Example for smooth buttons */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Page-specific styling can be overridden in component CSS */

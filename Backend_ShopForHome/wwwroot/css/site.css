@@ -1,0 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background: #fafafa;
+}
+.navbar {
+    display: flex; justify-content: space-between;
+    background: #333; color: #fff; padding: 1rem;
+}
+.navbar a { color: #fff; margin: 0 10px; text-decoration: none; }
+.logo a { font-weight: bold; font-size: 1.2rem; }
+.hero { text-align: center; padding: 4rem; background: #f4e1d2; }
+.hero h1 { font-size: 2.5rem; }
+.btn { background: #ff6600; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem; }
+.card { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+.card img { max-width: 100%; border-radius: 10px; }
+.footer { background: #333; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+.details { display: flex; gap: 2rem; padding: 2rem; }
+.details img { max-width: 300px; border-radius: 10px; }

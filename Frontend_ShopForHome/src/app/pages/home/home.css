@@ -1,0 +1,85 @@
+/* Hero Section */
+.home-hero {
+  height: 75vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/images/hero-bg.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 95vh;
+}
+.hero-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 21, 21, 0.163); /* black overlay with 40% opacity */
+  z-index: 1;
+}
+.hero-content h1 {
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+  color: #f8f9fa;
+  font-size: 1.5rem;
+}
+
+.hero-btn {
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Category Cards */
+.category-card {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.category-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Stats Section */
+.stats-section h3 {
+  font-size: 2.5rem;
+  color: #0d6efd;
+  transition: transform 0.3s;
+}
+
+.stats-section h3:hover {
+  transform: scale(1.1);
+}
+
+/* Reviews Section */
+.reviews-section {
+  background-color: #f8f9fa;
+}
+
+.review-text {
+  font-size: 1.2rem;
+  color: #343a40;
+  transition: color 0.3s;
+}
+
+.review-text:hover {
+  color: #0d6efd;
+}
+
+.review-user {
+  color: #495057;
+}
